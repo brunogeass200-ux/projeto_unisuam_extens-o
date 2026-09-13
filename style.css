@@ -1,0 +1,38 @@
+:root {
+  --bg: #050914;
+  --panel: rgba(6, 12, 24, 0.92);
+  --line: rgba(128, 240, 255, 0.32);
+  --cyan: #6ee7ff;
+  --pink: #ff4fd8;
+  --lime: #b7ff55;
+  --text: #e9f7ff;
+  --muted: #86a8bb;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at top, #0c1630, var(--bg) 62%); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); }
+body { display: grid; place-items: center; padding: 18px; }
+.estrutura-jogo { width: min(1280px, 100%); position: relative; }
+canvas { width: 100%; height: auto; display: block; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 0 0 1px rgba(255,255,255,.03), 0 24px 70px rgba(0,0,0,.42); background: #091225; }
+.sobreposicao { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(rgba(2,6,18,.4), rgba(2,6,18,.8)); border-radius: 18px; transition: opacity .25s ease, visibility .25s ease; }
+.sobreposicao.oculto { opacity: 0; visibility: hidden; pointer-events: none; }
+.painel { width: min(610px, calc(100% - 38px)); background: var(--panel); border: 1px solid rgba(110,231,255,.32); border-radius: 20px; padding: 30px; box-shadow: 0 25px 80px rgba(0,0,0,.55), inset 0 0 40px rgba(64,196,255,.05); backdrop-filter: blur(9px); }
+.painel-pausa { width: min(430px, calc(100% - 38px)); text-align: center; }
+.painel-pausa h2 { margin: 10px 0 22px; font-size: clamp(24px, 5vw, 42px); }
+.rotulo-superior { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--cyan); }
+h1 { margin: 8px 0 10px; font-size: clamp(42px, 8vw, 76px); line-height: .88; letter-spacing: -.04em; }
+p { margin: 0 0 22px; color: #b7d3e3; font-size: 16px; line-height: 1.55; }
+.controles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.controles span { border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.035); padding: 8px 10px; border-radius: 10px; color: var(--muted); font-size: 12px; }
+.controles b { color: var(--text); }
+button { border: 0; border-radius: 11px; padding: 13px 17px; color: #04101a; background: linear-gradient(90deg, var(--cyan), #9dffd4); font-weight: 900; letter-spacing: .05em; cursor: pointer; box-shadow: 0 8px 32px rgba(110,231,255,.2); }
+button:hover { transform: translateY(-1px); }
+.mensagem { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); padding: 10px 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; background: rgba(3,8,18,.74); color: #b7d3e3; font-size: 12px; opacity: 0; transition: opacity .2s ease; pointer-events: none; }
+.mensagem.visivel { opacity: 1; }
+.controles-toque { display: none; }
+@media (hover: none), (pointer: coarse) {
+  body { padding: 8px; }
+  .controles-toque { position: absolute; inset: auto 14px 14px; display: flex; justify-content: space-between; align-items: end; pointer-events: none; }
+  .grupo-controle { display: flex; gap: 8px; pointer-events: auto; }
+  .botao-toque { min-width: 52px; min-height: 46px; padding: 9px 11px; border: 1px solid rgba(110,231,255,.38); border-radius: 10px; background: rgba(5,12,25,.78); color: var(--text); font-size: 11px; touch-action: none; box-shadow: 0 5px 18px rgba(0,0,0,.35); }
+  .botao-toque:active { background: rgba(110,231,255,.35); transform: translateY(1px); }
+}
