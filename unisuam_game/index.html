@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Run: UNISUAM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="estrutura-jogo">
+    <canvas id="tela-jogo" width="1280" height="720" aria-label="Protótipo de jogo de ação 2D"></canvas>
+    <div class="sobreposicao" id="sobreposicao-inicio">
+      <div class="painel">
+        <div class="rotulo-superior">PROJETO DE EXTENSÃO • UNISUAM</div>
+        <h1>NEON RUN</h1>
+        <p>Jogo urbano 2D de corrida e combate — protótipo funcional em Canvas HTML5.</p>
+        <div class="controles">
+          <span><b>A/D</b> mover</span><span><b>W / Espaço</b> pular</span><span><b>J</b> atirar</span><span><b>G</b> granada</span><span><b>K</b> dash</span><span><b>R</b> reiniciar</span>
+        </div>
+        <button id="botao-inicio">INICIAR MISSÃO</button>
+      </div>
+    </div>
+    <div class="sobreposicao oculto" id="sobreposicao-pausa">
+      <div class="painel painel-pausa">
+        <div class="rotulo-superior">JOGO PAUSADO</div>
+        <h2>MISSÃO EM ESPERA</h2>
+        <button id="botao-continuar">CONTINUAR</button>
+      </div>
+    </div>
+    <div class="mensagem" id="mensagem">Colete loot para aumentar o score.</div>
+    <div class="controles-toque" aria-label="Controles de toque">
+      <div class="grupo-controle">
+        <button class="botao-toque" data-acao="esquerda" aria-label="Mover para a esquerda">&#9664;</button>
+        <button class="botao-toque" data-acao="direita" aria-label="Mover para a direita">&#9654;</button>
+      </div>
+      <div class="grupo-controle">
+        <button class="botao-toque" data-acao="pular" aria-label="Pular">PULAR</button>
+        <button class="botao-toque" data-acao="atirar" aria-label="Atirar">ATIRAR</button>
+        <button class="botao-toque" data-acao="granada" aria-label="Lançar granada">GRANADA</button>
+        <button class="botao-toque" data-acao="dash" aria-label="Usar dash">DASH</button>
+        <button class="botao-toque" data-acao="pausar" aria-label="Pausar ou continuar">PAUSAR</button>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
